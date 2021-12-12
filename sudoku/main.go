@@ -12,7 +12,7 @@ func main() {
 
 	if checkInput(arguments) == true {
 		table := [9][9]rune{}
-		table = fillTable(table, arguments) //filling the tables with the input arguments
+		table = fillTable(table, arguments) // filling the tables with the input arguments
 
 		if isSolve(&table) == true {
 			for y := 0; y < 9; y++ {
@@ -58,7 +58,7 @@ func checkInput(args []string) bool {
 	return true
 }
 
-//fills with input arguments
+// fills with input arguments
 func fillTable(table [9][9]rune, args []string) [9][9]rune {
 	for i := range args {
 		for j := range args[i] {
@@ -68,7 +68,7 @@ func fillTable(table [9][9]rune, args []string) [9][9]rune {
 	return table
 }
 
-//counts remaining empty cells
+// counts remaining empty cells
 func isDots(table *[9][9]rune) bool {
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
@@ -96,7 +96,7 @@ func isValid(table *[9][9]rune, x int, y int, z rune) bool {
 		}
 	}
 
-	//square check
+	// square check
 	a := x / 3
 	b := y / 3
 
@@ -110,10 +110,10 @@ func isValid(table *[9][9]rune, x int, y int, z rune) bool {
 	return true
 }
 
-//backtracking solver
+// backtracking solver
 
 func isSolve(table *[9][9]rune) bool {
-	if !isDots(table) { //here we are checking empty cells now, if there is no . then it is true for isSolve
+	if !isDots(table) { // here we are checking empty cells now, if there is no . then it is true for isSolve
 		return true
 	}
 	for y := 0; y < 9; y++ {
